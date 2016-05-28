@@ -46,7 +46,7 @@ function explorer(path) {
                         gm(path + "\\" + file)
                             .composite('2.png')
                             .geometry('+130+550')
-                            .write("shuiyin/" + file, function (err) {
+                            .write(file, function (err) {
                                 if (err) throw err;
                                 else console.log('done');
                             });
