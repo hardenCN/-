@@ -1,0 +1,9 @@
+{
+  "name": "deariicom",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "gm": "^1.22.0",
+    "qr-image": "^3.1.0",
+  }
+}
