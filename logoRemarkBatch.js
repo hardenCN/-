@@ -1,3 +1,9 @@
+/**
+ * 
+ *   支持递归文件操作，批量 大量 图片文件加水印 或logo
+ * 
+*/ 
+
 'use strict';
 
 
@@ -57,26 +63,6 @@ var explorerlogoRemark = function(path, nextQueueTaskCallback) {
 								console.log(JSON.stringify(value));
 								try {
 									if (value.width > value.height) {
-										if (value.width > 2200) {
-											gm(gm(path + "\\" + file)
-													.composite('3big.png')
-													.geometry('+50+' + (value.height - 200)) //左下角相对3.png => margin-left:10px;margin-bottom:10px
-													.stream())
-												.composite('2big.png')
-												.geometry('+' + (value.width - 900) + '+40') //左下角相对3.png => margin-left:10px;margin-bottom:10px
-												.quality(60)
-												.write(path + "\\060sydianai" + file, function(err) {
-													if (err) throw err;
-													else {
-														console.log('done');
-														i++;
-														if (i >= files.length) {
-															nextQueueTaskCallback();
-														}
-														callback();
-													}
-												});
-										} else {
 											gm(gm(path + "\\" + file)
 													.composite('3.png')
 													.geometry('+10+' + (value.height - 67)) //左下角相对3.png => margin-left:10px;margin-bottom:10px
@@ -95,29 +81,8 @@ var explorerlogoRemark = function(path, nextQueueTaskCallback) {
 														callback();
 													}
 												});
-										}
 
 									} else if (value.width <= value.height) {
-										if (value.height > 2200) {
-											gm(gm(path + "\\" + file)
-													.composite('3big.png')
-													.geometry('+10+' + (value.height - 200)) //左下角相对3.png => margin-left:10px;margin-bottom:10px
-													.stream())
-												.composite('2big.png')
-												.geometry('+' + (value.width - 900) + '+40') //左下角相对3.png => margin-left:10px;margin-bottom:10px
-												.quality(60)
-												.write(path + "\\060sydianai" + file, function(err) {
-													if (err) throw err;
-													else {
-														console.log('done');
-														i++;
-														if (i >= files.length) {
-															nextQueueTaskCallback();
-														}
-														callback();
-													}
-												});
-										} else {
 											gm(gm(path + "\\" + file)
 													.composite('3.png')
 													.geometry('+10+' + (value.height - 67)) //左下角相对3.png => margin-left:10px;margin-bottom:10px
@@ -136,7 +101,6 @@ var explorerlogoRemark = function(path, nextQueueTaskCallback) {
 														callback();
 													}
 												});
-										}
 									}
 								} catch (e) {
 									console.error(e);
