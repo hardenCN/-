@@ -7,6 +7,8 @@
 var fs = require('fs')
     , gm = require('gm').subClass({imageMagick: true});
 var qr = require('qr-image');
+var async = require("async"); 
+
 
 // var qr_svg = qr.image('https://dearii.com', { type: 'png' });
 // qr_svg.pipe(fs.createWriteStream('i_love_qr.png'));
@@ -30,7 +32,8 @@ function explorer(path) {
             console.log("error:\n" + err);
             return;
         }
-        files.forEach(function (file) {
+        // 同步操作，处理大量文件，和大文件
+        async.eachSeries(files,function (file,callback) {
             fs.stat(path + "\\" + file + '',
                 function (err, stat) {
                     if (err) {
@@ -48,7 +51,7 @@ function explorer(path) {
                             .geometry('+130+550')
                             .write(file, function (err) {
                                 if (err) throw err;
-                                else console.log('done');
+                                else {console.log('done');callback();}
                             });
                     // }
 
