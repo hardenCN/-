@@ -4,6 +4,8 @@
 
 图片批量加水印  Watermarking images in bulk
 
+#### util.js 不支持文件递归
+
 
 ## CHANGE LOG
 
