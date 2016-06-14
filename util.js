@@ -9,21 +9,6 @@ var fs = require('fs')
 var qr = require('qr-image');
 var async = require("async"); 
 
-
-// var qr_svg = qr.image('https://dearii.com', { type: 'png' });
-// qr_svg.pipe(fs.createWriteStream('i_love_qr.png'));
-// creating an image
-// gm('miyu_main.png')
-//     .composite(qr_svg)
-//     .geometry('+200+200')
-//     // .stream(function (err, stdout, stderr) {
-//     //     var writeStream = fs.createWriteStream('resized.jpg');
-//     //     stdout.pipe(writeStream);
-//     // });
-//     .write("brandNewImg.jpg", function (err) {
-//         if (err) throw err;
-//         else console.log('done');
-//     });
 var path = "D:\\Documents\\文件\\网站上用的照片\\1000X667凤凰岛游艇，标志海景酒店4个\\1000x667";
 
 function explorer(path) {
@@ -60,11 +45,5 @@ function explorer(path) {
     })
 }
 explorer(path);
-// gm('1.jpg')
-//     .composite('2.png')
-//     .geometry('+40+290')
-//     .write('composite.png', function (err) {
-//         if (err) throw err;
-//         else console.log('done');
-//     });
+
 
