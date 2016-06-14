@@ -6,6 +6,8 @@
 
 #### util.js 不支持文件递归
 
+#### logoRemarkBatch.js  批量文件操作，支持递归 需要 `async` 模块
+
 
 ## CHANGE LOG
 
