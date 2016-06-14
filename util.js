@@ -40,12 +40,10 @@ function explorer(path) {
                         console.log(err);
                         return;
                     }
-                    // if (stat.isDirectory()) {
-                    //     console.log(path + "\\" + file + "\\");
-                    //     explorer(path + "\\" + file);
-                    // } else {
+                     if (stat.isDirectory()) {
+                         console.log(path + "\\" + file + "\\");
+                     } else {
                         console.log(path + "\\" + file);
-
                         gm(path + "\\" + file)
                             .composite('2.png')
                             .geometry('+130+550')
@@ -53,7 +51,7 @@ function explorer(path) {
                                 if (err) throw err;
                                 else {console.log('done');callback();}
                             });
-                    // }
+                     }
 
                 }
             )
