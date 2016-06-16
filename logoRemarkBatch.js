@@ -57,7 +57,6 @@ var explorerlogoRemark = function(path, nextQueueTaskCallback) {
 						callback();
 					} else {
 						console.log(path + "\\" + file);
-						if (S(file).startsWith('resize_')) {
 							var readStream = fs.createReadStream(path + "\\" + file);
 							gm(readStream).size(function(err, value) {
 								console.log(JSON.stringify(value));
@@ -111,13 +110,7 @@ var explorerlogoRemark = function(path, nextQueueTaskCallback) {
 									callback();
 								}
 							});
-						} else {
-							i++;
-							if (i >= files.length) {
-								nextQueueTaskCallback();
-							}
-							callback();
-						}
+					
 
 					}
 				}
